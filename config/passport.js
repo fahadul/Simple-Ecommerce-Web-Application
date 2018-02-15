@@ -11,6 +11,7 @@ passport.deserializeUser(function(id, done){
       done(err, user);  
     });
 });
+
 //Middleware
 passport.use('local-login',new LocalStrategy({
     usernameField: 'email',
@@ -37,7 +38,3 @@ exports.isAuthenticated = function(req, res, next){
     }
     res.redirect('/login');
 }
-
-
-
-

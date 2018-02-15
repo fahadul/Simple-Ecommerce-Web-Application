@@ -1,0 +1,25 @@
+<% layout('layout') -%>
+
+    <div class="row" id="form">
+        <div class="col-md-6 offset-md-3">
+            <% if(message.length>0) { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <%= message %>
+                </div>
+
+                <% } %>
+
+
+                    <form method="post">
+                        <h1>Add category</h1>
+                        <div class="form-group">
+                            <label >Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Category Name" name="name">
+
+                            <button type="submit" class="btn btn-outline-success">Add Category</button>
+                    </form>
+                    </div>
+        </div>

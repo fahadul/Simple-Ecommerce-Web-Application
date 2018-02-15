@@ -1,3 +1,20 @@
 <% layout('layout') -%>
-Hello <%= user.profile.name %>
-password is <%= user.name %>
+<div class="container" id="form">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <img class="img-rounded img-responsive img-center" src="<%= user.profile.picture %>" alt="">
+            <br>
+            <h1>Name: <%= user.profile.name %></h1>
+            <p>Email: <%= user.email %></p>
+            <% if(user.address===""||typeof user.address==='undefined'){ %>
+               <p>Address: <span style="color:rgb(247, 58, 11); font-weight: bold">You have no address.</span></p>
+            <% } else { %>
+            <p>Address: <%= user.address %></p>
+            <% } %>
+            
+            <a class="btn btn-outline-success" href="/edit-profile" role="button">Edit Profile</a>
+        </div>
+    </div>
+</div>
+
+<!-- password is <%= user.name %>  -->

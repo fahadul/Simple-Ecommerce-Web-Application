@@ -40,14 +40,20 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 app.engine('ejs', engine);
 app.set('view engine','ejs');
 
 var mainRoutes = require('./routes/main');
 var userRoutes = require('./routes/user');
+var adminRoutes = require('./routes/admin');
 
 app.use(mainRoutes);
-app.use(userRoutes); 
+app.use(userRoutes);
+app.use(adminRoutes); 
 
 app.listen(secret.port,function(err){
     if(err) throw err;
